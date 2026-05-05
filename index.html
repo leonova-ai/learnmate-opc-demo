@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnMate | AI 备考学习搭子</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="side-rail">
+        <div class="brand-mark">LM</div>
+        <nav aria-label="主要模块">
+          <button class="rail-btn active" data-view="today" title="今日">
+            <span>今</span>
+          </button>
+          <button class="rail-btn" data-view="agents" title="搭子">
+            <span>搭</span>
+          </button>
+          <button class="rail-btn" data-view="material" title="资料">
+            <span>析</span>
+          </button>
+          <button class="rail-btn" data-view="map" title="知识图谱">
+            <span>图</span>
+          </button>
+        </nav>
+      </aside>
+
+      <section class="workspace">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">OPC 2026 · 数字文化赛道</p>
+            <h1>LearnMate AI 备考学习搭子</h1>
+          </div>
+          <div class="profile-chip">
+            <span class="pulse"></span>
+            <span>雅思冲刺 · Day 12</span>
+          </div>
+        </header>
+
+        <section class="view view-active" id="today">
+          <div class="hero-grid">
+            <article class="daily-card">
+              <div class="card-head">
+                <span class="tag">今日挑战</span>
+                <span class="date" id="todayDate"></span>
+              </div>
+              <h2 id="challengeTitle">如果你要向 12 岁学生解释 “coherence”，你会怎么举例？</h2>
+              <textarea id="answerInput" placeholder="写下你的 3 句话解释..."></textarea>
+              <button class="primary-action" id="submitAnswer">提交给 Ask 追问</button>
+              <p class="ai-feedback" id="aiFeedback">Ask 会根据你的回答继续追问，而不是直接给标准答案。</p>
+            </article>
+
+            <article class="focus-panel">
+              <div class="ring">
+                <span id="completionRate">67%</span>
+              </div>
+              <h3>今日学习闭环</h3>
+              <ul class="task-list">
+                <li class="done">完成 1 个思考挑战</li>
+                <li>复习 2 个高遗忘节点</li>
+                <li>分析 1 道错题的错因</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="insight-row">
+            <article class="insight-card amber">
+              <span>Star</span>
+              <p>你今天不需要重新规划，只要完成一个 15 分钟学习动作。</p>
+            </article>
+            <article class="insight-card green">
+              <span>Mem</span>
+              <p>“coherence” 和 “topic sentence” 到了最佳复习时间。</p>
+            </article>
+            <article class="insight-card blue">
+              <span>Data</span>
+              <p>最近错题集中在写作结构，建议先处理段落衔接。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="agents">
+          <div class="agent-board">
+            <article class="agent-card active-agent" data-agent="star">
+              <span class="agent-icon">✦</span>
+              <h2>Star</h2>
+              <p>情绪搭子。先接住焦虑，再把任务拆小。</p>
+            </article>
+            <article class="agent-card" data-agent="ask">
+              <span class="agent-icon">Ask</span>
+              <h2>Ask</h2>
+              <p>苏格拉底式追问。让用户自己想清楚。</p>
+            </article>
+            <article class="agent-card" data-agent="mem">
+              <span class="agent-icon">Mem</span>
+              <h2>Mem</h2>
+              <p>记忆管家。根据遗忘曲线安排复习。</p>
+            </article>
+            <article class="agent-card" data-agent="data">
+              <span class="agent-icon">Data</span>
+              <h2>Data</h2>
+              <p>学习分析师。定位错题和薄弱领域。</p>
+            </article>
+          </div>
+
+          <div class="chat-stage">
+            <div class="chat-log" id="chatLog">
+              <div class="bubble ai">Star：今天状态不用完美。告诉我，你最想先解决“写作结构”还是“口语表达”？</div>
+            </div>
+            <form class="chat-form" id="chatForm">
+              <input id="chatInput" autocomplete="off" placeholder="输入你的学习卡点..." />
+              <button type="submit">发送</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="view" id="material">
+          <div class="material-layout">
+            <article class="material-input">
+              <span class="tag">资料解析器 Cut</span>
+              <h2>把学习材料变成可复习的知识节点</h2>
+              <textarea id="materialText">In IELTS Writing Task 2, coherence means ideas are logically connected. A clear topic sentence helps the reader understand the paragraph's main point, while linking words show relationships between ideas.</textarea>
+              <button class="primary-action" id="analyzeMaterial">解析材料</button>
+            </article>
+
+            <article class="extract-result">
+              <h3>解析结果</h3>
+              <div id="nodeResult" class="node-result">
+                <p class="empty">点击“解析材料”，系统会生成知识节点、练习题和复习安排。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="map">
+          <div class="map-shell">
+            <div class="map-info">
+              <span class="tag">个人知识图谱</span>
+              <h2>知识不是卡片堆，而是一张正在长出来的星图</h2>
+              <p>节点来自用户对话、资料和错题。连线表示 AI 发现的概念关系，复习任务会优先落在高遗忘或高错题节点上。</p>
+            </div>
+            <div class="knowledge-map" aria-label="知识图谱演示">
+              <svg viewBox="0 0 760 420" role="img">
+                <path d="M150 250 C280 130 420 130 560 210" />
+                <path d="M220 310 C340 250 430 280 610 320" />
+                <path d="M370 120 C400 210 410 250 460 320" />
+              </svg>
+              <button class="node n1">Coherence</button>
+              <button class="node n2">Topic Sentence</button>
+              <button class="node n3">Linking Words</button>
+              <button class="node n4">Paragraph Logic</button>
+              <button class="node n5">Error Pattern</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
